@@ -1,4 +1,5 @@
 How to run this:
+
 First run gdb on main. You will see that when it crashes, it gives a nonsensical name and the address of the function. This makes it hard to add
 breakpoints and in general debug. With this, you can open the binary in IDA and rename the functions, so that in gdb, you can actually see and break
 at the new names you have given the functions.
@@ -13,7 +14,9 @@ that it will segfault in func(). In IDA, rename this function into something els
 the segment starts. To run the example, type the following...
 
 gcc -g -o symb.o -c gen.c
+
 ld -o symb symb.o -T script.lds
+
 gdb -s symb -e main
 
 If you run gdb and when it crashes, you do a backtrace, you should see the function it crashed in, and its name should be whatever you renamed
